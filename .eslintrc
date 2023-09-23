@@ -1,0 +1,23 @@
+{
+  "parser": "@typescript-eslint/parser",
+  "extends": ["plugin:@typescript-eslint/recommended"],
+  "parserOptions": { "ecmaVersion": 2021, "sourceType": "module" },
+  "plugins": ["eslint-plugin-node"],
+  "rules": {
+    "node/no-deprecated-api": "error",
+    "node/no-unsupported-features/node-builtins": "warn",
+
+    "@typescript-eslint/no-unused-vars": [
+      "warn",
+      {
+        "argsIgnorePattern": "^_",
+        "varsIgnorePattern": "^_",
+        "caughtErrorsIgnorePattern": "^_"
+      }
+    ],
+
+    "no-unused-vars": "off",
+    "prefer-destructuring": "warn"
+  }
+  //   "ignorePatterns": ["**/generated/**"]
+}
