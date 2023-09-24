@@ -19,5 +19,4 @@
     "no-unused-vars": "off",
     "prefer-destructuring": "warn"
   }
-  //   "ignorePatterns": ["**/generated/**"]
 }
