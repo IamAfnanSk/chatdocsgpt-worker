@@ -116,6 +116,8 @@ const worker = new Worker(
     } catch (error) {
       await supabase.from('training_groups').update({ status: 'errored' }).eq('id', trainingGroupId);
       console.log(error);
+
+      throw error;
     }
   },
   {
