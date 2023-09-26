@@ -97,7 +97,11 @@ const worker = new Worker(
         throw `Invalid request, user don't exists or problem fetching user: ${user_id} data: ${job.data}`;
       }
 
-      if (userData.credits) {
+      if (typeof userData.credits === 'number') {
+        if (!userData.credits) {
+          throw `Error:- user credits are over`;
+        }
+
         const newCredits = userData.credits - 1;
 
         await supabase

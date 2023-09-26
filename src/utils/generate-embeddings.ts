@@ -443,8 +443,6 @@ async function generateEmbeddings(pathToProcess: string, trainingGroupId: string
         `Page '${path}' or one/multiple of its page sections failed to store properly. Page has been marked with null checksum to indicate that it needs to be re-generated.`,
       );
       console.log('error -> ', (error as { message: string }).message);
-
-      throw error;
     }
   }
 
