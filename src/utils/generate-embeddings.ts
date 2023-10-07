@@ -245,8 +245,6 @@ class MarkdownEmbeddingSource extends BaseEmbeddingSource {
     const path = filePath.replace(pattern, '').replace(/\.mdx?$/, '');
     const parentPath = parentFilePath?.replace(pattern, '').replace(/\.mdx?$/, '');
 
-    console.log(source, path, repoDir, parentPath);
-
     super(source, path, repoDir, parentPath);
   }
 

@@ -32,10 +32,6 @@ const processGitRepo = async (gitSourceURL: string, trainingGroupId: string, git
 
   const pathToProcess = gitSourceDocDirPath ? join(repoDir, repoName, gitSourceDocDirPath) : join(repoDir, repoName);
 
-  console.log({ repoDir });
-
-  console.log({ gitSourceDocDirPath }, { pathToProcess });
-
   await generateEmbeddings(pathToProcess, trainingGroupId, repoDir);
 
   // Cleanup: Delete the cloned repository.
@@ -72,19 +68,7 @@ const worker = new Worker(
       // Set status to processing
       await supabase.from('training_groups').update({ status: 'processing' }).eq('id', trainingGroupId);
 
-      const { id, created_at, user_id, git_source_url, git_source_doc_dir_path, name, image_url, status } =
-        trainingGroupData;
-
-      console.log('Training group data', {
-        id,
-        created_at,
-        user_id,
-        git_source_url,
-        git_source_doc_dir_path,
-        name,
-        image_url,
-        status,
-      });
+      const { id, user_id, git_source_url, git_source_doc_dir_path } = trainingGroupData;
 
       const { data: userData, error: userError } = await supabase
         .from('users')
